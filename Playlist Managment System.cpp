@@ -3,7 +3,7 @@
 #include<fstream>
 using namespace std;
 
-class Song
+class Song					// Song class for implementation of playList class
 {
 	// output the song in the format:
 	// title, artist
@@ -24,14 +24,17 @@ public:
 	// set the song
 	void Set(const char* t, const char* a);
 
-private:
+private:					// Private data members
 	static const int MAX_CHARS = 64;
 	char title[MAX_CHARS];
 	char artist[MAX_CHARS];
 };
-class Playlist {
+class Playlist {							// Playlist class for songs
+	// addition operator for adding 2 playList classes
+	// PlayList1+PlayList2
 	friend Playlist operator +(const Playlist& p1, Song& s2)
 	{
+		// p2 as object of PlayList class
 		Playlist p2;
 		cout << "Enter the title of song and artist (title,artist) to add in playlist :";
 		cin >> s2;
@@ -39,9 +42,11 @@ class Playlist {
 		p2.plist[p2.numOfSongs] = s2;								//input a song in song array
 		p2.numOfSongs++;
 		cout << "Song has been added succesfuly\n";
-		p2.doubleSize();
+		p2.doubleSize();				// Double the size of playlist class in which previous playlist is added
 		return p2;
 	}
+	// addition operator for subtracting 2 playList classes
+	// PlayList1-PlayList2
 	friend Playlist operator -(Playlist& p1,Song& s2)
 	{
 		Playlist p;
@@ -52,7 +57,7 @@ class Playlist {
 		int i;
 		for (i = 0; i < p.numOfSongs; i++)
 		{
-			if (p.plist[i] == s2)													//Compare song from song array
+			if (p.plist[i] == s2)		// compare the songs in playlist											//Compare song from song array
 			{
 				a = true;
 				break;
@@ -63,7 +68,7 @@ class Playlist {
 			p.plist[i] = p.plist[i + 1];
 			p.numOfSongs--;
 			cout << "Song has been Deleted successfully\n";
-			p.halfSize();
+			p.halfSize();						// Reduce the size of playlist class
 		}
 		else
 		{
@@ -71,7 +76,7 @@ class Playlist {
 		}
 		return p;
 	}
-public:
+public:			// Public data members
 
 	Playlist();							//Constructor
 
@@ -91,7 +96,7 @@ private:
 	Song* plist = new Song[arraySize];		//Dynamic allocated song array 
 
 };
-void handleInputfailure()
+void handleInputfailure()			// handle in input failure
 {
 	if (cin.fail())
 	{
@@ -99,13 +104,15 @@ void handleInputfailure()
 		cin.ignore(1000, '\n');
 	}
 }
-Playlist::Playlist()
+// Default Constructor of playList class
+Playlist::Playlist()	
 {
 	arraySize = 2;
 	numOfSongs = 0;
 	indexOfSong = 0;
 	plist[arraySize];						//Create a song array of size 2
 }
+// Add song function for adding songs in playList class
 void Playlist::AddSong(Song& s2)
 {
 	cout << "Enter the title of song and artist (title,artist) to add in playlist :";
@@ -116,6 +123,8 @@ void Playlist::AddSong(Song& s2)
 	doubleSize();
 	handleInputfailure();
 }
+
+// Delete the song from playList class
 bool Playlist::DeleteSong(Song& s2)
 {
 	bool a = false;
@@ -124,7 +133,7 @@ bool Playlist::DeleteSong(Song& s2)
 	int i;
 	for (i = 0; i < numOfSongs; i++)
 	{
-		if (plist[i] == s2)													//Compare song from song array
+		if (plist[i] == s2)		// Compare the songs in PlayList											//Compare song from song array
 		{
 			a = true;
 			break;
@@ -144,6 +153,7 @@ bool Playlist::DeleteSong(Song& s2)
 	handleInputfailure();
 	return true;
 }
+// Print the all the Songs in PlayList classs in Console
 void Playlist::ShowAll()const
 {
 	cout << "\n Song Detail:\n";
@@ -152,6 +162,8 @@ void Playlist::ShowAll()const
 		cout << plist[i] << endl;
 	}
 }
+// Print the song currently playing on playList
+// Also show the next songs
 void Playlist::Play(int num)
 {
 	int next;
@@ -180,6 +192,7 @@ void Playlist::Play(int num)
 	}
 	handleInputfailure();
 }
+// Show the current status of playlist calss that which song is playig and what is its index
 void Playlist::ShowStatus()const
 {
 	cout << "The Size of Song Array is :" << arraySize << endl;
