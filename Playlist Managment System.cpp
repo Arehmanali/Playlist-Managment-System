@@ -78,7 +78,8 @@ class Playlist {							// Playlist class for songs
 	}
 public:			// Public data members
 
-	Playlist();							//Constructor
+	//Constructor
+	Playlist();							
 
 	void AddSong(Song& s2);			//Add song in playlist
 	bool DeleteSong(Song& s2);			//delete song from playlist
