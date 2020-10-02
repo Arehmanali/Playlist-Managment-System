@@ -1,9 +1,9 @@
-
 #include <cstring>
 #include<fstream>
 using namespace std;
 
-class Song					// Song class for implementation of playList class
+// Song class for implementation of playList class
+class Song
 {
 	// output the song in the format:
 	// title, artist
