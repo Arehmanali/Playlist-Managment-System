@@ -29,6 +29,7 @@ private:					// Private data members
 	char title[MAX_CHARS];
 	char artist[MAX_CHARS];
 };
+// Playlist class for songs
 class Playlist {							// Playlist class for songs
 	// addition operator for adding 2 playList classes
 	// PlayList1+PlayList2
