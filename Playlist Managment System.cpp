@@ -91,6 +91,7 @@ public:			// Public data members
 	void halfSize();						//Reduce the siz of array of song
 	~Playlist();							//Destructor
 
+	// private data members
 private:
 	int arraySize;
 	int numOfSongs;
