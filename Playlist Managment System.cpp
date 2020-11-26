@@ -202,6 +202,7 @@ void Playlist::ShowStatus()const
 	cout << "The Total Number of Songs in Playlist are :" << numOfSongs << endl;
 	cout << "The Current Index of Song is :" << indexOfSong << endl;
 }
+// Double size module for doubling size of playlist
 void Playlist::doubleSize()
 {
 	if (arraySize <= numOfSongs)
