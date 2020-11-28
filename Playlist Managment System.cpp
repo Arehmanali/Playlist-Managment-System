@@ -156,6 +156,7 @@ bool Playlist::DeleteSong(Song& s2)
 	handleInputfailure();
 	return true;
 }
+
 // Print the all the Songs in PlayList classs in Console
 void Playlist::ShowAll()const
 {
@@ -165,6 +166,7 @@ void Playlist::ShowAll()const
 		cout << plist[i] << endl;
 	}
 }
+
 // Print the song currently playing on playList
 // Also show the next songs
 void Playlist::Play(int num)
@@ -195,6 +197,7 @@ void Playlist::Play(int num)
 	}
 	handleInputfailure();
 }
+
 // Show the current status of playlist calss that which song is playig and what is its index
 void Playlist::ShowStatus()const
 {
@@ -202,6 +205,7 @@ void Playlist::ShowStatus()const
 	cout << "The Total Number of Songs in Playlist are :" << numOfSongs << endl;
 	cout << "The Current Index of Song is :" << indexOfSong << endl;
 }
+
 // Double size module for doubling size of playlist
 void Playlist::doubleSize()
 {
@@ -210,6 +214,8 @@ void Playlist::doubleSize()
 		arraySize = arraySize * 2;
 	}
 }
+
+// Half size function for half the size of playlist
 void Playlist::halfSize()
 {
 	if (numOfSongs / 2 <= arraySize)
