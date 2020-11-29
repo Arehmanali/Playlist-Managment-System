@@ -245,6 +245,7 @@ Song::Song(const char* t, const char* a)
 	Set(t, a);
 }
 
+// Setter function for Song class
 void Song::Set(const char* t, const char* a)
 {
 	if (strlen(t) < MAX_CHARS)
