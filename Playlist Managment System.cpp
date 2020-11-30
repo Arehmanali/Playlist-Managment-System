@@ -295,6 +295,7 @@ bool operator==(const Song & lhs, const Song & rhs)
 	return true;
 }
 
+// Driver program
 int main()
 {
 	Song s2;				//Object of Song class
